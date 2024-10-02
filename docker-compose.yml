@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backend:
+    build: ./digital-banking-spring-backend
+    ports:
+      - "8085:8085"
+    networks:
+      - banking-network
+
+  frontend:
+    build: ./digital-banking-angular-front
+    ports:
+      - "80:80"
+    networks:
+      - banking-network
+
+networks:
+  banking-network:
+    driver: bridge
